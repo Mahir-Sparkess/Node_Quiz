@@ -4,6 +4,7 @@
 
 import { getQuiz } from "../api/getQuiz.js";
 import { getAnswer } from "../utils/getAnswer.js";
+import { decode } from "html-entities";
 
 export async function play(params) {
     let score = 0;
@@ -25,7 +26,7 @@ export async function play(params) {
 async function makeGuess(question) {
     const guess = await getAnswer(question);
 
-    if (guess === question.correct_answer) {
+    if (guess === decode(question.correct_answer)) {
         console.log("correct!");
         return true;
     }
