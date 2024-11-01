@@ -16,11 +16,9 @@ async function chooseAnswer(choices, message) {
 }
 
 export async function getAnswer(question) {
-    const answers = question.incorrect_answers.slice();
+    let answers = question.incorrect_answers.slice();
     answers.push(question.correct_answer);
-    answers.forEach((string) => {
-        string = decode(string);
-    });
+    answers = answers.map((string) => decode(string));
 
     const message = decode(question.question);
 
