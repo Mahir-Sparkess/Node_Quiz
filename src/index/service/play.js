@@ -3,7 +3,7 @@
  */
 
 import { getQuiz } from "../api/getQuiz.js";
-import { getAnswer } from "../utils/getQuestionAnswer.js";
+import { getAnswer } from "../utils/getAnswer.js";
 
 export async function play(params) {
     let score = 0;
