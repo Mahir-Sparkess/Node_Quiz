@@ -1,7 +1,7 @@
 /**
  * @module utils/getQuestionAnswer
  */
-import { decode } from "html-entities";
+import { decode, encode } from "html-entities";
 import { displayPrompt } from "./prompt.js";
 
 async function chooseAnswer(choices, message) {
@@ -23,5 +23,5 @@ export async function getAnswer(question) {
     const message = decode(question.question);
 
     const chosenAnswer = await chooseAnswer(answers, message);
-    return chosenAnswer;
+    return encode(chosenAnswer);
 }
